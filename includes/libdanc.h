@@ -8,6 +8,21 @@
 
 #ifndef LIBDANC_H
 # define LIBDANC_H
+
+
+# include <stdio.h>
+# include <string.h>
+# include <stdlib.h>
+# include <stdarg.h>
+# include <stdbool.h>
+# include <ctype.h>
+# include <time.h>
+# include <math.h>
+# include <unistd.h>
+# include <fcntl.h>
+
+
+
 typedef unsigned int u32;
 
 #define MEMORY_ALLOCATION_ERROR 12
@@ -48,23 +63,11 @@ typedef unsigned int u32;
 #define	O_		 31
 #define	P_		 32
 
-# include <stdio.h>
-# include <string.h>
-# include <stdlib.h>
-# include <stdarg.h>
-# include <stdbool.h>
-# include <ctype.h>
-# include <time.h>
-# include <math.h>
-# include <unistd.h>
-# include <fcntl.h>
-
 /*
 provides evaluation of assertion and debugging notices
 */
 #define ASSERT_MSG(cond, msg) assert_msg((cond), (msg), __FILE__, __LINE__)
 void assert_msg(int condition, const char *msg, const char *file, int line);
-
 
 /*
 	memoffset can define a register location in memory
@@ -77,8 +80,6 @@ void assert_msg(int condition, const char *msg, const char *file, int line);
 			the second designation
 */
 #define memoffset(type, MEM, OFFSET, index, offset) *((volatile type*)(MEM+OFFSET+(index*offset)))
-
-
 
 /*
 defines macro for bitsetter function where a list of bit-places in a 32 bit integer to be set,
@@ -102,17 +103,25 @@ cleanup function must be defined with declaration
 for freeing on exit
 */
 void	error_exit(char *mess, int error_type, t_program *strct, p_cleanup_function cleanup);
+
+/* from exit_malloc.c
+performs error checking and uses ERROR_MEM for exit, cleanup and critical message
+*/
+void	*exit_malloc(size_t size, t_program *c, char *mess);
+
 /* from error_exit.c 
 cleanup function must be defined with declaration 
 'void cleanup(t_program *c)'
 for freeing on exit
 */
+
 void	ERROR_MEM(t_program *o, char *mess);
 /* from error_exit.c 
 cleanup function must be defined with declaration 
 'void cleanup(t_program *c)'
 for freeing on exit
 */
+
 void	ERROR_MEM_index(t_program *o, char *mess, int v1, int v2, int v3);
 
 /* from free_2d_char.c 
@@ -122,7 +131,7 @@ void	free_2d_char(char **f, size_t len);
 /* from get_next_line.c
 returns line from file up to newline character
 */
-char *get_next_line(int fd);
+char	*get_next_line(int fd);
 
 /* from is_md_val.c
 returns true if value inputted is valid md value
@@ -158,18 +167,17 @@ size_t	lstlen(char **list);
 /* from rand_range.c
 returns random number between l and r
 */
-int rand_range(int l, int r);
+int	rand_range(int l, int r);
 
 /* from safe_malloc.c
 performs error checking and error logging in "error.txt" with graceful NULL returned
 */
-void *safe_malloc(size_t size);
+void	*safe_malloc(size_t size);
 
-/* from exit_malloc.c
-performs error checking and uses ERROR_MEM for exit, cleanup and critical message
+/* from save_to_error_txt.c
+saves error message to file "error.txt"
 */
-void *exit_malloc(size_t size, t_program *c, char *mess);
-
+void	save_to_error_txt(char *mess);
 
 /* from numlen.c
 returns length of positive and negative numbers (includes negative symbol)

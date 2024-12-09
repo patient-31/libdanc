@@ -24,9 +24,7 @@ char *get_next_line(int fd)
 			line = realloc(line, BUFFER_SIZE * buffer_mult);
 			if (!line)
 			{
-				FILE *err = fopen("error.txt", "a");
-				fprintf(err, "get_next_line allocation\n");
-				fclose(err);
+				save_to_error_txt("get_next_line allocation");
 				return NULL;
 			}
 		}
@@ -39,9 +37,7 @@ char *get_next_line(int fd)
 		else if (byte_read == -1)
 		{
 			free(line);
-			FILE *err = fopen("error.txt", "a");
-			fprintf(err, "get_next_line error from read function call\n");
-			fclose(err);
+			save_to_error_txt("get_next_line error from read function call");
 			return NULL;
 		}
 		if (line[i] == '\n' || line[i] == '\0')
