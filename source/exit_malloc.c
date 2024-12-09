@@ -11,8 +11,9 @@
 void *exit_malloc(size_t size, t_program *c, char *mess) 
 {
 	void *ptr = malloc(size);
-	if (!ptr) {
+	if (!ptr) 
+	{
 		ERROR_MEM(c, mess);
 	}
-    return ptr;
+	return ptr;
 }
