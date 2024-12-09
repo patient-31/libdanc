@@ -19,26 +19,44 @@
 # include <time.h>
 # include <math.h>
 # include <unistd.h>
-# include <fcntl.h>
+
 
 typedef struct s_node {
 	void *data;
 	struct s_node *next;
 } t_node;
 
+/** from s_node.c
+ * create node of type t_node for head of linked list */
 t_node 	*create_node(void *data);
+/** from s_node.c
+ * add to front of linked list */
 void		insert_front(t_node **head, void *data);
+/** from s_node.c
+ * remove from front of linked list */
 void		delete_front(t_node **head);
+/** from s_node.c
+ * prints int data only */
 void		print_nodes(t_node *head);
+/** from s_node.c
+ * free all nodes for singly linked list t_node */
 void		free_nodes(t_node *head);
 
 typedef struct s_stack {
 	t_node *top;
 } t_stack;
 
+/** from s_stack.c 
+ * create stack type and push first int to top */
 t_stack 	*create_stack(int data);
+/** from s_stack.c 
+ * push int to top of t_stack */
 void 		push(t_stack *stack, int data);
+/** from s_stack.c 
+ * returns data popped off top of stack */
 int			pop(t_stack *stack);
+/** from s_stack.c 
+ * prints int stack */
 void 		print_stack(t_stack *stack);
 
 
@@ -48,7 +66,7 @@ typedef unsigned int u32;
 #define INLINE static inline
 #define BUFFER_SIZE 256
 
-/* Definitions for the 32 pattern descriptors in the md number set system */
+/** Definitions for the 32 pattern descriptors in the md number set system */
 #define _A		  1
 #define	_B		  2
 #define	_C		  3
@@ -82,13 +100,13 @@ typedef unsigned int u32;
 #define	O_		 31
 #define	P_		 32
 
-/*
+/**
 provides evaluation of assertion and debugging notices
 */
 #define ASSERT_MSG(cond, msg) assert_msg((cond), (msg), __FILE__, __LINE__)
 void assert_msg(int condition, const char *msg, const char *file, int line);
 
-/*
+/**
 	memoffset can define a register location in memory
 	memoffset takes 4 arguments
 	1. type - type of pointer
@@ -100,7 +118,7 @@ void assert_msg(int condition, const char *msg, const char *file, int line);
 */
 #define memoffset(type, MEM, OFFSET, index, offset) *((volatile type*)(MEM+OFFSET+(index*offset)))
 
-/*
+/**
 defines macro for bitsetter function where a list of bit-places in a 32 bit integer to be set,
 this allows duplicates but will only set once, can be in any order
 */
@@ -116,111 +134,95 @@ typedef void (*p_cleanup_function)(t_program *);
 void cleanup(t_program *c); // function to be defined by user
 
 
-/* from error_exit.c 
-cleanup function must be defined with declaration 
-'void cleanup(t_program *c)'
-for freeing on exit
+/** from error_exit.c
+ * cleanup function must be defined with declaration
+ * 'void cleanup(t_program *c)'
+ * for freeing on exit
 */
 void	error_exit(char *mess, int error_type, t_program *strct, p_cleanup_function cleanup);
 
-/* from exit_malloc.c
-performs error checking and uses ERROR_MEM for exit, cleanup and critical message
+/** from exit_malloc.c
+ * performs error checking and uses ERROR_MEM for exit, cleanup and critical message
 */
 void	*exit_malloc(size_t size, t_program *c, char *mess);
 
-/* from error_exit.c 
-cleanup function must be defined with declaration 
-'void cleanup(t_program *c)'
-for freeing on exit
+/** from error_exit.c 
+ * cleanup function must be defined with declaration 
+ * 'void cleanup(t_program *c)'
+ * for freeing on exit
 */
-
 void	ERROR_MEM(t_program *o, char *mess);
-/* from error_exit.c 
-cleanup function must be defined with declaration 
-'void cleanup(t_program *c)'
-for freeing on exit
-*/
 
+/** from error_exit.c 
+ * cleanup function must be defined with declaration 
+ * 'void cleanup(t_program *c)'
+ * for freeing on exit
+*/
 void	ERROR_MEM_index(t_program *o, char *mess, int v1, int v2, int v3);
 
-/* from free_2d_char.c 
-frees 2d character array */
+/** from free_2d_char.c 
+ * frees 2d character array */
 void	free_2d_char(char **f, size_t len);
 
-/* from get_next_line.c
-returns line from file up to newline character
-*/
+/** from get_next_line.c
+ * returns line from file up to newline character */
 char	*get_next_line(int fd);
 
-/* from is_md_val.c
-returns true if value inputted is valid md value
-*/
+/** from is_md_val.c
+ * returns true if value inputted is valid md value */
 bool	is_md_val(char *_x_);
 
-/*from is_whitespace.c
-returns true if string is all whitespace
-*/ 
+/**from is_whitespace.c
+ * returns true if string is all whitespace */ 
 bool	is_whitespace(char *s);
 
-/* from itoa.c
-returns converted integer to character array pointer
-*/
+/** from itoa.c
+ * returns converted integer to character array pointer */
 char	*itoa(int n);
 
-/* from itomd.c
-returns converted integer to character array pointer following md number set system convention
-if the number is very large, it will take too long
-*/
+/** from itomd.c
+ * returns converted integer to character array pointer following md number set system convention
+ * if the number is very large, it will take too long */
 char	*itomd(int d);
 
-/* from md_val.c
-returns positive integers only, converts md numbers to there base 10 integer form
-*/
+/** from md_val.c
+ * returns positive integers only, converts md numbers to there base 10 integer form */
 u32	md_val(char *_x_);
 
-/* from lstlen.c
-returns size of 2d character list
-*/
+/** from lstlen.c
+ * returns size of 2d character list */
 size_t	lstlen(char **list);
 
-/* from rand_range.c
-returns random number between l and r
-*/
+/** from rand_range.c
+ * returns random number between l and r */
 int	rand_range(int l, int r);
 
-/* from safe_malloc.c
-performs error checking and error logging in "error.txt" with graceful NULL returned
-*/
+/** from safe_malloc.c
+ * performs error checking and error logging in "error.txt" with graceful NULL returned */
 void	*safe_malloc(size_t size, char *mess);
 
-/* from save_to_error_txt.c
-saves error message to file "error.txt"
-*/
+/** from save_to_error_txt.c
+ * saves error message to file "error.txt" */
 void	save_to_error_txt(char *mess);
 
-/* from numlen.c
-returns length of positive and negative numbers (includes negative symbol)
-*/
+/** from numlen.c
+ * returns length of positive and negative numbers (includes negative symbol) */
 size_t	numlen(int n);
 
-/* from split.c
-returns pointers to 2d character array split by the delimiter c
-*/
+/** from split.c
+ * returns pointers to 2d character array split by the delimiter c */
 char	**split(char const *s, char c);
 
-/* from strjoin_e.c
-returns pointer to character array of some number(c) of joined strings;
-*/
+/** from strjoin_e.c
+ * returns pointer to character array of some number(c) of joined strings; */
 char	*strjoin_e(size_t c, ...);
 
-/* from tabdup.c
-duplicates pointers to a 2d character array
-*/
+/** from tabdup.c
+ * duplicates pointers to a 2d character array */
 char	**ft_tabdup(char **in);
 
-/* from wordcnt.c
-dependency of split.c, returns number of words in string based on delimeter c
-*/
+/** from wordcnt.c
+ * dependency of split.c, returns number of words in string based on delimeter c */
 size_t	wordcnt(char const *s, char c);
 
 
