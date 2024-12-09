@@ -15,7 +15,7 @@ char	*itoa(int n)
 	size_t	len;
 
 	len = numlen(n);
-	str = malloc(sizeof(char) * (len + 1));
+	str = safe_malloc(sizeof(char) * (len + 1), "allocation for itoa() failed");
 	if (!str)
 		return (NULL);
 	if (n < 0)

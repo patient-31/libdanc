@@ -8,17 +8,11 @@
 
 #include "../includes/libdanc.h"
 
-void *safe_malloc(size_t size) 
+void *safe_malloc(size_t size, char *mess) 
 {
 	void *ptr = malloc(size);
 	if (!ptr) {
-		FILE *err = fopen("error.txt", "a");
-		if (err) {
-			fprintf(err, "Error: Memory allocation failed for size %zu\n", size);
-			fclose(err);
-		} else {
-			fprintf(stderr, "Error: Memory allocation failed for size %zu\n", size);
-		}
+		save_to_error_txt(mess);
         return NULL;
     }
     return ptr;

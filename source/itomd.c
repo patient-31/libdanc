@@ -45,6 +45,8 @@ char	*itomd(int d)
 	{
 		char *zero;
 		zero = strdup("ZERO");
+		if (!zero)
+			save_to_error_txt("string allocation failed");
 		return (zero);
 	}
 	return (NULL);

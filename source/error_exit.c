@@ -18,9 +18,7 @@ void	error_exit(char *mess, int error_type, t_program *strct, p_cleanup_function
 
 void	ERROR_MEM(t_program *o, char *mess)
 {
-	FILE *err = fopen("error.txt", "a");
-	fprintf(err, "%s\n", mess);
-	fclose(err);
+	save_to_error_txt(mess);
 	error_exit(mess, MEMORY_ALLOCATION_ERROR, o, cleanup);
 }
 

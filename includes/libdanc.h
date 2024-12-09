@@ -21,13 +21,32 @@
 # include <unistd.h>
 # include <fcntl.h>
 
+typedef struct s_node {
+	void *data;
+	struct s_node *next;
+} t_node;
+
+t_node 	*create_node(void *data);
+void		insert_front(t_node **head, void *data);
+void		delete_front(t_node **head);
+void		print_nodes(t_node *head);
+void		free_nodes(t_node *head);
+
+typedef struct s_stack {
+	t_node *top;
+} t_stack;
+
+t_stack 	*create_stack(int data);
+void 		push(t_stack *stack, int data);
+int			pop(t_stack *stack);
+void 		print_stack(t_stack *stack);
 
 
 typedef unsigned int u32;
 
 #define MEMORY_ALLOCATION_ERROR 12
 #define INLINE static inline
-#define BUFFER_SIZE 4
+#define BUFFER_SIZE 256
 
 /* Definitions for the 32 pattern descriptors in the md number set system */
 #define _A		  1
@@ -172,7 +191,7 @@ int	rand_range(int l, int r);
 /* from safe_malloc.c
 performs error checking and error logging in "error.txt" with graceful NULL returned
 */
-void	*safe_malloc(size_t size);
+void	*safe_malloc(size_t size, char *mess);
 
 /* from save_to_error_txt.c
 saves error message to file "error.txt"

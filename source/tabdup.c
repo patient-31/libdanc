@@ -14,12 +14,14 @@ char	**tabdup(char **in)
 	char	**out;
 
 	i = 0;
-	out = malloc(sizeof(char *) * (lstlen(in) + 1));
+	out = safe_malloc(sizeof(char *) * (lstlen(in) + 1), "allocation for tabdup() failed");
 	if (!out)
 		return (NULL);
 	while (in[i])
 	{
 		out[i] = strdup(in[i]);
+		if (!out[i])
+			save_to_error_txt("string allocation failed, out[i]");
 		i++;
 	}
 	out[i] = NULL;

@@ -13,7 +13,7 @@ char *get_next_line(int fd)
 	int i;
 	char *line;
 	int buffer_mult = 1;
-	line = safe_malloc(BUFFER_SIZE);
+	line = safe_malloc(BUFFER_SIZE, "allocation for get_next_line() failed");
 
 	i = 0;
 	while (1)
@@ -23,7 +23,11 @@ char *get_next_line(int fd)
 			buffer_mult += 1;
 			line = realloc(line, BUFFER_SIZE * buffer_mult);
 			if (!line)
+			{
+				save_to_error_txt("reallocation failed, get_next_line[i]");
 				return NULL;
+			}
+				
 		}
 		int byte_read = read(fd, &line[i], 1);
 		if (byte_read == 0)

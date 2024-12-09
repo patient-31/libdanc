@@ -50,7 +50,7 @@ $(OBJ_DIR):
 -include $(OBJECTS:.o=.d)
 
 test:
-	$(C_COMPILER) test.c $(TARGET) -o output
+	$(C_COMPILER) test.c $(TARGET) -o output -fsanitize=address -g
 
 # Rule to clean up compiled files
 clean:

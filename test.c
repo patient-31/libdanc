@@ -25,15 +25,8 @@ int main()
 	t_program *c;
 	c = malloc(sizeof(t_program));
 
-	int fd = open("error.txt", O_RDONLY);
-	char *line = get_next_line(fd);
-	printf("%s\n", line);
-	line = get_next_line(fd);
-	printf("%s\n", line);
-	line = get_next_line(fd);
-	printf("%s\n", line);
-	line = get_next_line(fd);
-	printf("%s\n", line);
-	close(fd);
-
+	int fd = open("newfile", O_RDONLY);
+	char *string =  get_next_line(fd);
+	printf("%s", string);
+    return 0;
 }
