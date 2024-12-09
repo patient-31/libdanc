@@ -23,10 +23,7 @@ char *get_next_line(int fd)
 			buffer_mult += 1;
 			line = realloc(line, BUFFER_SIZE * buffer_mult);
 			if (!line)
-			{
-				save_to_error_txt("get_next_line allocation");
 				return NULL;
-			}
 		}
 		int byte_read = read(fd, &line[i], 1);
 		if (byte_read == 0)
@@ -37,7 +34,6 @@ char *get_next_line(int fd)
 		else if (byte_read == -1)
 		{
 			free(line);
-			save_to_error_txt("get_next_line error from read function call");
 			return NULL;
 		}
 		if (line[i] == '\n' || line[i] == '\0')
