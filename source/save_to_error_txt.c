@@ -12,5 +12,6 @@ void save_to_error_txt(char *mess)
 {
 	FILE *err = fopen("error.txt", "a");
 	fprintf(err, "%s\n", mess);
+	fprintf(stderr, "%s\n", mess);
 	fclose(err);
 }

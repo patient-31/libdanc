@@ -24,9 +24,6 @@ int main()
 {
 	t_program *c;
 	c = malloc(sizeof(t_program));
-
-	int fd = open("newfile", O_RDONLY);
-	char *string =  get_next_line(fd);
-	printf("%s", string);
+read_file_to_string("test.c");
     return 0;
 }

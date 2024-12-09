@@ -197,6 +197,10 @@ size_t	lstlen(char **list);
  * returns random number between l and r */
 int	rand_range(int l, int r);
 
+/** from read_file_to_string.c
+ *  reads entire file to a char pointer */
+char *read_file_to_string(const char *filename);
+
 /** from safe_malloc.c
  * performs error checking and error logging in "error.txt" with graceful NULL returned */
 void	*safe_malloc(size_t size, char *mess);
