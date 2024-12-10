@@ -24,6 +24,6 @@ int main()
 {
 	t_program *c;
 	c = malloc(sizeof(t_program));
-read_file_to_string("test.c");
+
     return 0;
 }

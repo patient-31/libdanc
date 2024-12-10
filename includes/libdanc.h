@@ -187,7 +187,7 @@ char	*itomd(int d);
 
 /** from md_val.c
  * returns positive integers only, converts md numbers to there base 10 integer form */
-u32	md_val(char *_x_);
+u32		md_val(char *_x_);
 
 /** from lstlen.c
  * returns size of 2d character list */
@@ -195,11 +195,11 @@ size_t	lstlen(char **list);
 
 /** from rand_range.c
  * returns random number between l and r */
-int	rand_range(int l, int r);
+int		rand_range(int l, int r);
 
 /** from read_file_to_string.c
- *  reads entire file to a char pointer */
-char *read_file_to_string(const char *filename);
+ *  reads entire file and assigns content to a char pointer */
+char	*read_file_to_string(const char *filename);
 
 /** from safe_malloc.c
  * performs error checking and error logging in "error.txt" with graceful NULL returned */
@@ -229,6 +229,9 @@ char	**ft_tabdup(char **in);
  * dependency of split.c, returns number of words in string based on delimeter c */
 size_t	wordcnt(char const *s, char c);
 
-
+/** from write_string_to_file
+ * writes contents to file "filename"
+ */
+void write_string_to_file(const char *filename, const char *content);
 
 #endif
