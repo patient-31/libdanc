@@ -1,23 +1,22 @@
 /*
  * ________________________________________________________________________________
- * |  File: free_2d_char.c
+ * |  File: print_2d_char.c
  * |  Project: source
- * |  File Created: Monday, 9th December 2024 07:36 am
+ * |  File Created: Wednesday, 11th December 2024 07:39 am
  * |  Author: Daniel Haddington [haddingtondaniel5@icloud.com]
  */
 
 #include "../includes/libdanc.h"
 
-void	free_2d_char(char **f, size_t len)
+void print_2d_char(char **p)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < len)
+	if (p)
 	{
-		if (f[i])
-			free(f[i++]);		
+		size_t i = 0;
+		while (p[i])
+		{
+			printf("%s\n", p[i]);
+			i += 1;
+		}		
 	}
-	if (f)
-		free(f);
 }

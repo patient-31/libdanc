@@ -13,7 +13,7 @@ TARGET := libdanc.a
 C_COMPILER			:= clang
 ARCHIVER			:= ar rcs
 DEPENDENCY_TRACKING := -MMD -MP
-FLAGS				:= -Wall -Wextra
+FLAGS				:= -Wextra -Wall
 
 # Define source and object directories
 SRC_DIR		:= source/

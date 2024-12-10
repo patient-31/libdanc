@@ -13,3 +13,48 @@ void safe_free(void *tofree)
 	if (tofree)
 		free(tofree);
 }
+
+void	safe_free_2d_void(void **f)
+{
+	if (f)
+	{
+		size_t i = 0;
+		while ((f)[i])
+		{
+			if (f[i])
+				free((f)[i]);
+			i += 1;
+		}
+		free(f);
+	}
+}
+
+void	safe_free_2d_char(char **f)
+{
+	if (f)
+	{
+		size_t	i = 0;
+		while (f[i])
+		{
+			if (f[i])
+				free(f[i]);
+			i += 1;		
+		}
+		free(f);
+	}
+}
+
+void	safe_free_2d_int(int **f)
+{
+	if (f)
+	{
+		size_t	i = 0;
+		while (f[i])
+		{
+			if (f[i])
+				free(f[i]);
+			i += 1;		
+		}
+		free(f);
+	}
+}
