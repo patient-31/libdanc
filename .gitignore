@@ -2,3 +2,4 @@ object/
 output
 .DS_Store
 output.dSYM
+libdanc.a
