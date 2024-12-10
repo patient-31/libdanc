@@ -1,3 +1,1 @@
-new t_node_s
-reallocation failed, get_next_line[i]
-failed to read entire file
+

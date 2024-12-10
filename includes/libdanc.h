@@ -217,6 +217,10 @@ size_t	numlen(int n);
  * returns pointers to 2d character array split by the delimiter c */
 char	**split(char const *s, char c);
 
+/** from str_reverse.c
+ * reverses string inputted */
+char *str_reverse(char *in);
+
 /** from strjoin_e.c
  * returns pointer to character array of some number(c) of joined strings; */
 char	*strjoin_e(size_t c, ...);
