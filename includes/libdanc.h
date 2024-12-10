@@ -58,7 +58,9 @@ int			pop(t_stack *stack);
 /** from s_stack.c 
  * prints int stack */
 void 		print_stack(t_stack *stack);
-
+/** from s_stack.c
+ * checks top of stack without destroying data 
+ * returns INT32_MIN if stack is empty and prints message */
 int			stack_peek(t_stack *stack);
 
 typedef unsigned int u32;
