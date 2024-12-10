@@ -8,7 +8,9 @@
 
 #ifndef LIBDANC_H
 # define LIBDANC_H
-
+	#ifdef __cplusplus
+	extern "C" {
+	#endif
 
 # include <stdio.h>
 # include <string.h>
@@ -241,4 +243,7 @@ size_t	wordcnt(char const *s, char c);
  */
 void write_string_to_file(const char *filename, const char *content);
 
+	#ifdef __cplusplus
+	}
+	#endif
 #endif
