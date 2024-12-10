@@ -48,7 +48,7 @@ typedef struct s_stack {
 
 /** from s_stack.c 
  * create stack type and push first int to top */
-t_stack 	*create_stack(int data);
+t_stack 	*create_stack();
 /** from s_stack.c 
  * push int to top of t_stack */
 void 		push(t_stack *stack, int data);
@@ -59,6 +59,7 @@ int			pop(t_stack *stack);
  * prints int stack */
 void 		print_stack(t_stack *stack);
 
+int			stack_peek(t_stack *stack);
 
 typedef unsigned int u32;
 

@@ -1,1 +1,10 @@
 
+pop() called on empty stack
+pop() called on empty stack
+pop() called on empty stack
+pop() called on empty stack
+pop() called on empty stack
+pop() called on empty stack
+pop() called on empty stack
+pop() called on empty stack
+stack_peek() called on empty stack

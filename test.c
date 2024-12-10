@@ -25,6 +25,6 @@ int main()
 	t_program *c;
 	c = malloc(sizeof(t_program));
 
-	printf("%s\n", str_reverse("hello"));
+
     return 0;
 }

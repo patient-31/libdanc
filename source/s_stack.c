@@ -8,13 +8,11 @@
 
 #include "../includes/libdanc.h"
 
-t_stack *create_stack(int data)
+t_stack *create_stack()
 {
 	t_stack *new;
 	new = safe_malloc(sizeof(t_stack), "Stack could not be created");
-	int *data_ptr = safe_malloc(sizeof(int), "create_stack() malloc failed");
-	*data_ptr = data;
-	new->top = create_node(data_ptr);
+	new->top = NULL;
 	return (new);
 }
 
@@ -28,7 +26,11 @@ void push(t_stack *stack, int data)
 int pop(t_stack *stack)
 {
 	if (stack->top == NULL)
+	{
+		save_to_error_txt("pop() called on empty stack");
 		return 0;
+	}
+		
 	int data = *(int *)stack->top->data;
 	delete_front(&(stack->top));
 	return data;
@@ -36,6 +38,22 @@ int pop(t_stack *stack)
 
 void print_stack(t_stack *stack)
 {
+	if (stack->top == NULL)
+	{
+		printf("stack is empty\n");
+		return ;
+	}
 	print_nodes(stack->top);
+}
+
+int	stack_peek(t_stack *stack)
+{
+	if (stack->top == NULL)
+	{
+		save_to_error_txt("stack_peek() called on empty stack");
+		return INT32_MIN;
+	}
+	int data = *(int *)stack->top->data;
+	return data;
 }
 
