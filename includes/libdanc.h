@@ -131,7 +131,7 @@ this allows duplicates but will only set once, can be in any order
 u32 bitsetter(u32 result, ...);
 
 
-typedef struct t_program t_program; // reusable struct
+typedef struct s_program t_program; // reusable struct
 typedef void (*p_cleanup_function)(t_program *);
 
 /// FUNCTION DEFINITIONS ///
@@ -205,6 +205,10 @@ int		rand_range(int l, int r);
 /** from read_file_to_string.c
  *  reads entire file and assigns content to a char pointer */
 char	*read_file_to_string(const char *filename);
+
+/** from safe_free.c
+ * checks for allocation of pointer variable before freeing */
+void	safe_free(void *tofree);
 
 /** from safe_malloc.c
  * performs error checking and error logging in "error.txt" with graceful NULL returned */
