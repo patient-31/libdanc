@@ -255,7 +255,7 @@
 
 		/** from tabdup.c
 		 * duplicates pointers to a 2d character array */
-		char	**ft_tabdup(char **in);
+		char	**tabdup(char **in);
 
 		/** from wordcnt.c
 		 * dependency of split.c, returns number of words in string based on delimeter c */
