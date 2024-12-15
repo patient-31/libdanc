@@ -69,7 +69,7 @@
 
 		#define MEMORY_ALLOCATION_ERROR 12
 		#define INLINE static inline
-		#define BUFFER_SIZE 256
+		#define BUFFER_SIZE 32
 
 		/** Definitions for the 32 pattern descriptors in the md number set system */
 		#define _A		  1
@@ -167,6 +167,13 @@
 		 * for freeing on exit
 		*/
 		void	ERROR_MEM_index(t_program *o, char *mess, int v1, int v2, int v3);
+
+		/** from filelen_2d.c 
+		 * finds number of lines in file
+		*/
+		size_t filelen_2d(int fd);
+
+		char **get_file_2d(int fd);
 
 		/** from get_next_line.c
 		 * returns line from file up to newline character */

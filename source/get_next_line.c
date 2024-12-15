@@ -27,22 +27,24 @@ char *get_next_line(int fd)
 				save_to_error_txt("reallocation failed, get_next_line[i]");
 				return NULL;
 			}
-				
 		}
 		int byte_read = read(fd, &line[i], 1);
-		if (byte_read == 0)
-		{
-			line[i] = '\0';
-			return line;
-		} 
-		else if (byte_read == -1)
+		if (byte_read == -1)
 		{
 			free(line);
 			return NULL;
 		}
-		if (line[i] == '\n' || line[i] == '\0')
+		else if (byte_read == 0)
 		{
 			line[i] = '\0';
+			if (line[0] == '\0')
+				return NULL;
+			return line;
+		} 
+		if (line[i] == '\n')
+		{
+			line[i] = '\n';
+			line[i + 1] = '\0';
 			return line;
 		}
 		i += 1;	

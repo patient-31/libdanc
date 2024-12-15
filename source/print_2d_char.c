@@ -15,7 +15,7 @@ void print_2d_char(char **p)
 		size_t i = 0;
 		while (p[i])
 		{
-			printf("%s\n", p[i]);
+			printf("%s", p[i]);
 			i += 1;
 		}		
 	}
