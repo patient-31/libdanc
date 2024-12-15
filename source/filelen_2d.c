@@ -16,7 +16,7 @@ size_t filelen_2d(int fd)
 	len = 0;
 	while ((line = get_next_line(fd)) != NULL)
 	{
-		free(line);
+		safe_free(line);
 		len++;
 	}
 	lseek(fd, 0, SEEK_SET);

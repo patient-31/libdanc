@@ -18,6 +18,13 @@ char *get_next_line(int fd)
 	i = 0;
 	while (1)
 	{
+		if (i == MAX_LINE_LENGTH)
+		{
+			save_to_error_txt("MAX_LINE_LENGTH exceeded!");
+			safe_free(line);
+			return NULL;
+		}
+			
 		if (i == BUFFER_SIZE * buffer_mult)
 		{
 			buffer_mult += 1;

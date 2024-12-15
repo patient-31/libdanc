@@ -70,6 +70,7 @@
 		#define MEMORY_ALLOCATION_ERROR 12
 		#define INLINE static inline
 		#define BUFFER_SIZE 32
+		# define MAX_LINE_LENGTH 10000
 
 		/** Definitions for the 32 pattern descriptors in the md number set system */
 		#define _A		  1
