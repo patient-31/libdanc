@@ -18,8 +18,8 @@ int main(void)
 	char *line10k;
 
 	int i = 0;
-	line10k = safe_malloc(sizeof(char) * (MAX_LINE_LENGTH * 2) + 1, "allocation line10k");
-	while (i < MAX_LINE_LENGTH * 2)
+	line10k = safe_malloc(sizeof(char) * (MAX_LINE_LENGTH) + 1, "allocation line10k");
+	while (i < MAX_LINE_LENGTH)
 	{
 		line10k[i] = '0';
 		i++;

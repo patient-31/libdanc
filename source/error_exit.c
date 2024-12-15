@@ -26,6 +26,7 @@ void	ERROR_MEM_index(t_program *o, char *mess, int v1, int v2, int v3)
 {
 	FILE *err = fopen("error.txt", "a");
 	fprintf(err, "%s v1:%d v2:%d v3:%d\n", mess, v1, v2, v3);
+	fprintf(stderr, "%s v1:%d v2:%d v3:%d\n", mess, v1, v2, v3);
 	fclose(err);
 	error_exit(mess, MEMORY_ALLOCATION_ERROR, o, cleanup);
 }
