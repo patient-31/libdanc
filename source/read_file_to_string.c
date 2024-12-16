@@ -20,7 +20,9 @@ char *read_file_to_string(const char *filename)
 	fseek(f, 0, SEEK_END);
 	unsigned long file_size = ftell(f);
 	rewind(f);
-	out = safe_malloc(sizeof(char) * (file_size + 1), "allocation for out in read_file_to_string()");
+	out = msg_malloc(sizeof(char) * (file_size + 1), "allocation for out in read_file_to_string()");
+	if (!out)
+		return (NULL);
 
 	size_t bytes_read = fread(out, 1, file_size, f);
 	if (bytes_read != file_size)

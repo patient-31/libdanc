@@ -16,11 +16,11 @@ char	**split(char const *s, char c)
 	size_t	k;
 
 	if (!s)
-		return (0);
+		return (NULL);
 	k = wordcnt(s, c);
-	split = safe_malloc(sizeof(char *) * (k + 1), "allocation for split() failed");
+	split = msg_malloc(sizeof(char *) * (k + 1), "allocation for split() failed");
 	if (!split)
-		return (0);
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (i < k)
@@ -33,7 +33,15 @@ char	**split(char const *s, char c)
 			j++;
 		split[i] = strndup(s, j);
 		if (!split[i])
-			save_to_error_txt("string allocation failed, split[i]");
+		{
+			save_to_error_txt("string allocation failed in split(), split[i]");
+			for (size_t b = 0; b < i; b++)
+				safe_free(split[b]);
+			safe_free(split);
+			return (NULL);
+		}
+			
+			
 		i++;
 	}
 	split[i] = 0;

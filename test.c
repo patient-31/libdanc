@@ -7,27 +7,11 @@
  */
 
 #include "includes/libdanc.h"
-# include <fcntl.h>
 
 
-int main(void)
-{
-
-
-	char **array;
-	char *line10k;
-
-	int i = 0;
-	line10k = safe_malloc(sizeof(char) * (MAX_LINE_LENGTH) + 1, "allocation line10k");
-	while (i < MAX_LINE_LENGTH)
-	{
-		line10k[i] = '0';
-		i++;
-	}
-	write_string_to_file("long_line.txt", line10k);
-	int fd = open("long_line.txt", O_RDONLY);
-	array = get_file_2d(fd);
-
-	print_2d_char(array);
-	return (0);
+int main() {
+	
+	srand(time(NULL));
+	printf("Random Integer: %d\n", rand_range(0, 50));
+    return 0;
 }

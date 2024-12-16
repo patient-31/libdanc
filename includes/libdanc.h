@@ -153,7 +153,7 @@
 		 * 'void cleanup(t_program *c)'
 		 * for freeing on exit
 		*/
-		void	*exit_malloc(size_t size, t_program *c, char *mess);
+		void	*exit_malloc(size_t size, char *mess, t_program *c);
 
 		/** from error_exit.c 
 		 * cleanup function must be defined with declaration 
@@ -237,9 +237,9 @@
 		 * otherwise, the loop will continue into invalid memory. */
 		void	safe_free_2d_int(int **f);
 
-		/** from safe_malloc.c
+		/** from msg_malloc.c
 		 * performs error checking and error logging in "error.txt" with graceful NULL returned */
-		void	*safe_malloc(size_t size, char *mess);
+		void	*msg_malloc(size_t size, char *mess);
 
 		/** from save_to_error_txt.c
 		 * saves error message to file "error.txt" */

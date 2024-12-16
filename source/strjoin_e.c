@@ -22,7 +22,7 @@ static void	*malloc_strlen_n(size_t c, va_list arg)
 		c--;
 	}
 	va_end(arg_copy);
-	out = safe_malloc(sizeof(char) * (size + 1), "allocation for strjoin_e failed");
+	out = msg_malloc(sizeof(char) * (size + 1), "allocation for strjoin_e failed");
 	return (out);
 }
 

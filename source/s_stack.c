@@ -11,14 +11,18 @@
 t_stack *create_stack()
 {
 	t_stack *new;
-	new = safe_malloc(sizeof(t_stack), "Stack could not be created");
+	new = msg_malloc(sizeof(t_stack), "Stack could not be created");
+	if (!new)
+		return (NULL);
 	new->top = NULL;
 	return (new);
 }
 
 void push(t_stack *stack, int data)
 {
-	int *data_ptr = safe_malloc(sizeof(int), "push() malloc failed");
+	int *data_ptr = msg_malloc(sizeof(int), "push() malloc failed");
+	if (!data_ptr)
+		return (NULL);
 	*data_ptr = data;
 	insert_front(&stack->top, data_ptr);
 }

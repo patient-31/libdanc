@@ -13,7 +13,7 @@ char **get_file_2d(int fd)
 	char **file_array;
 	size_t file_len = filelen_2d(fd);
 	size_t i = 0;
-	file_array = safe_malloc(sizeof(char *) * (file_len + 1), "get_file_2d() allocation");
+	file_array = msg_malloc(sizeof(char *) * (file_len + 1), "get_file_2d() allocation");
 	if (!file_array)
 		return(NULL);
 	while (i < file_len)

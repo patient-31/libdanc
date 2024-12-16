@@ -14,7 +14,7 @@ char	**tabdup(char **in)
 	char	**out;
 
 	i = 0;
-	out = safe_malloc(sizeof(char *) * (lstlen(in) + 1), "allocation for tabdup() failed");
+	out = msg_malloc(sizeof(char *) * (lstlen(in) + 1), "allocation for tabdup() failed");
 	if (!out)
 		return (NULL);
 	while (in[i])

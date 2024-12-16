@@ -8,7 +8,7 @@
 
 #include "../includes/libdanc.h"
 
-void *exit_malloc(size_t size, t_program *c, char *mess) 
+void *exit_malloc(size_t size, char *mess, t_program *c) 
 {
 	void *ptr = malloc(size);
 	if (!ptr) 

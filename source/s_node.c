@@ -11,7 +11,9 @@
 t_node 	*create_node(void *data)
 {
 	t_node *new;
-	new = safe_malloc(sizeof(t_node), "new t_node");
+	new = msg_malloc(sizeof(t_node), "new t_node");
+	if (!new)
+		return (NULL);
 	new->data = data;
 	new->next = NULL;
 	return (new);

@@ -13,8 +13,9 @@ char *get_next_line(int fd)
 	int i;
 	char *line;
 	int buffer_mult = 1;
-	line = safe_malloc(BUFFER_SIZE, "allocation for get_next_line() failed");
-
+	line = msg_malloc(BUFFER_SIZE, "allocation for get_next_line() failed");
+	if (!line)
+		return (NULL);
 	i = 0;
 	while (1)
 	{
