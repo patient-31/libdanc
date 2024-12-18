@@ -20,3 +20,15 @@ void print_2d_char(char **p)
 		}		
 	}
 }
+
+void	print_list_2d(char **list)
+{
+	int	i;
+
+	i = 0;
+	while (list[i])
+	{
+		printf("%s\n", list[i]);
+		i++;
+	}
+}
