@@ -206,8 +206,11 @@
 		size_t	lstlen(char **list);
 
 		/** from print_2d_char.c
-		 * prints 2d character array that has been null terminated */
+		 * prints 2d character array that has been null terminated, without newlines*/
 		void	print_2d_char(char **p);
+		/** from print_2d_char.c
+		 * prints 2d character array that has been null terminated, with newlines*/
+		void	print_list_2d(char **list);
 
 		/** from rand_range.c
 		 * returns random number between l and r */

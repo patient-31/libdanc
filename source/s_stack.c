@@ -21,8 +21,6 @@ t_stack *create_stack()
 void push(t_stack *stack, int data)
 {
 	int *data_ptr = msg_malloc(sizeof(int), "push() malloc failed");
-	if (!data_ptr)
-		return (NULL);
 	*data_ptr = data;
 	insert_front(&stack->top, data_ptr);
 }
