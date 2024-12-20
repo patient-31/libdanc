@@ -73,38 +73,40 @@
 		# define MAX_LINE_LENGTH 10000
 
 		/** Definitions for the 32 pattern descriptors in the md number set system */
-		#define _A		  1
-		#define	_B		  2
-		#define	_C		  3
-		#define	_D		  4
-		#define	_E		  5
-		#define	_F		  6
-		#define	_G		  7
-		#define	_H		  8
-		#define	_I		  9
-		#define	_J		 10
-		#define	_K		 11
-		#define	_L		 12
-		#define	_M		 13
-		#define	_N		 14
-		#define	_O		 15
-		#define	_P		 16
-		#define	A_		 17
-		#define	B_		 18
-		#define	C_		 19
-		#define	D_		 20
-		#define	E_		 21
-		#define	F_		 22
-		#define	G_		 23
-		#define	H_		 24
-		#define	I_		 25
-		#define	J_		 26
-		#define	K_		 27
-		#define	L_		 28
-		#define	M_		 29
-		#define	N_		 30
-		#define	O_		 31
-		#define	P_		 32
+		typedef enum {
+		_A = 1,
+		_B,
+		_C,
+		_D,
+		_E,
+		_F,
+		_G,
+		_H,
+		_I,
+		_J,
+		_K,
+		_L,
+		_M,
+		_N,
+		_O,
+		_P,
+		A_,
+		B_,
+		C_,
+		D_,
+		E_,
+		F_,
+		G_,
+		H_,
+		I_,
+		J_,
+		K_,
+		L_,
+		M_,
+		N_,
+		O_,
+		P_
+		} md_pd;
 
 		/**
 		provides evaluation of assertion and debugging notices

@@ -12,6 +12,7 @@
 int main() {
 	
 	srand(time(NULL));
-	printf("Random Integer: %d\n", rand_range(0, 50));
+	printf("Random Integer: %d\n", md_val("_B1"));
+
     return 0;
 }
