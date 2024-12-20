@@ -74,38 +74,7 @@
 
 		/** Definitions for the 32 pattern descriptors in the md number set system */
 		typedef enum {
-		_A = 1,
-		_B,
-		_C,
-		_D,
-		_E,
-		_F,
-		_G,
-		_H,
-		_I,
-		_J,
-		_K,
-		_L,
-		_M,
-		_N,
-		_O,
-		_P,
-		A_,
-		B_,
-		C_,
-		D_,
-		E_,
-		F_,
-		G_,
-		H_,
-		I_,
-		J_,
-		K_,
-		L_,
-		M_,
-		N_,
-		O_,
-		P_
+			_A = 1, _B, _C, _D, _E, _F, _G, _H, _I, _J, _K, _L, _M, _N, _O, _P, A_, B_, C_, D_, E_, F_, G_, H_, I_, J_, K_, L_, M_, N_, O_, P_
 		} md_pd;
 
 		/**
