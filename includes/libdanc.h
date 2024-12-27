@@ -108,7 +108,8 @@
 
 		/// FUNCTION DEFINITIONS ///
 
-		void cleanup(t_program *c); // function to be defined by user
+		// function defined by user, performs cleanup of struct t_program
+		void cleanup(t_program *c); 
 
 
 		/** from error_exit.c
@@ -158,6 +159,10 @@
 		/**from is_whitespace.c
 		 * returns true if string is all whitespace */ 
 		bool	is_whitespace(char *s);
+
+		/**from isdigitstr.c 
+		 * returns true if a string is all digits */
+		bool	isdigitstr(char *s);
 
 		/** from itoa.c
 		 * returns converted integer to character array pointer */
@@ -243,7 +248,7 @@
 		 * dependency of split.c, returns number of words in string based on delimeter c */
 		size_t	wordcnt(char const *s, char c);
 
-		/** from write_string_to_file
+		/** from write_string_to_file.c
 		 * writes contents to file "filename"
 		 */
 		void	write_string_to_file(const char *filename, const char *content);
