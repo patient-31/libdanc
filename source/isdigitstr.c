@@ -15,7 +15,7 @@ bool isdigitstr(char *s)
 	int i;
 
 	i = 0;
-	while (s[i] != NULL)
+	while (s[i])
 	{
 		if (!isdigit(s[i]))
 			return false;
