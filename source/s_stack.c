@@ -8,6 +8,7 @@
 
 #include "../includes/libdanc.h"
 
+
 t_stack *create_stack()
 {
 	t_stack *new;
@@ -53,7 +54,7 @@ int	stack_peek(t_stack *stack)
 	if (stack->top == NULL)
 	{
 		save_to_error_txt("stack_peek() called on empty stack");
-		return INT32_MIN;
+		return -2147483647;
 	}
 	int data = *(int *)stack->top->data;
 	return data;
