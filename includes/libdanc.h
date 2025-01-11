@@ -112,6 +112,10 @@
 		void cleanup(t_program *c); 
 
 
+		char *concatenate_tokens(char **tokens);
+		int count_tokens(char **line);
+
+
 		/** from error_exit.c
 		 * cleanup function must be defined with declaration
 		 * 'void cleanup(t_program *c)'
@@ -239,6 +243,8 @@
 		/** from strjoin_e.c
 		 * returns pointer to character array of some number(c) of joined strings; */
 		char	*strjoin_e(size_t c, ...);
+
+		char	*substr(char const *s, unsigned int start, size_t len);
 
 		/** from tabdup.c
 		 * duplicates pointers to a 2d character array */
