@@ -12,7 +12,6 @@ void safe_free(void *tofree)
 {
 	if (tofree)
 		free(tofree);
-	tofree = NULL;
 }
 
 void	safe_free_2d_void(void **f)
