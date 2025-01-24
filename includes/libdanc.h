@@ -246,6 +246,10 @@
 
 		char	*substr(char const *s, unsigned int start, size_t len);
 
+		/** from tabcpy.c
+		 * copies list from src to dest returns -1 if dest has no space */
+		int		tabcpy(char **dest, char **src);
+
 		/** from tabdup.c
 		 * duplicates pointers to a 2d character array */
 		char	**tabdup(char **in);
